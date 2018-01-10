@@ -1,4 +1,10 @@
 
+" Ensure that plugin/vimcmdline.vim was sourced
+if !exists("g:cmdline_job")
+    runtime plugin/vimcmdline.vim
+endif
+
+
 function StataSourceLines(lines)
     call writefile(a:lines, g:cmdline_tmp_dir . "/lines.do")
     call VimCmdLineSendCmd('do ' . g:cmdline_tmp_dir . '/lines.do')
